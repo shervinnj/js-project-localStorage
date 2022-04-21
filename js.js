@@ -38,4 +38,11 @@ if(e.target.className ==='delete'){
 }
 });
 
+//inja ma barayeh ul yek event gozashtim ke zamani ke click konim
+//on elemonto pak koneh
+////to khateh 35 ma target(eshareh) gozashtim rooyeh class dellete
+//ke hamoon file hazfe va bad dar khat 36 neveshtim ke pedareh elemaneh class delete ke li hastto pak konej 
+//class delete tageh spaneh ke pedaresh mishe li
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
