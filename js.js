@@ -124,3 +124,37 @@ function setToLocalStorage(task){
 //bia be soorate split shode berizesh to varible 
 //dar khat 112 mighim hala bia ba dastooreh push task ke megdaresh bara bar ba input.text.value hasto bezar to local stotage
 //va dar nahayat local storagemono SET kon be key tasks va valiu tasks
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+document.addEventListener('DOMContentLoaded',function(e){
+    let tasks;
+    if(localStorage.getItem('tasks')===null){
+    tasks=[];
+
+    }else{
+        tasks=localStorage.getItem('tasks').split(',');
+
+    }
+    for(let item of tasks){
+        let li=document.createElement('li');
+        let span=document.createElement('span');
+        span.className='name';
+        span.innerHTML=item;
+        li.appendChild(span);
+        li.innerHTML +=spanDelete;
+        ul.appendChild(li);
+
+    }
+
+})
+
+// in dastoor barayeh ineh ke zamani safaro refresh mikonim etelatet az local storage biyad va chizi pak nashe
+//dar khate 130 yani aval ma omadim in eventListenero barayeh 
+//document neveshtim yani koleh sahfe va barayeh event avalesh az DOMContentLoaded estefadeh kardim
+//va bad function neveshtim va to function omadim goftim ke ye varible khali ijad kon
+//bia bebin ke localStorage man khaliyeh ya na agar ke bood ke hich []
+//dar ghire in soorat bi hame etelato beriz to tasks be hamrah split(',')
+//va bad hala bayad biyayim eatrate konim chon bayad bereh to tak takeh filamoon onaro biyare ba estefadeh az tage for chon megdaresho midonim
+//va bad etelato az balah copy kardim to for ke beghim che etelatio niyadz darim
+// va dar akhar bayad havasemoon bashe ke dar tageh span ma bayad megdareh item bezarim chon megdari ke eatrate karde rikhteh boodimesh to tage item
