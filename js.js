@@ -91,27 +91,27 @@ e.preventDefault();
 
 });
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ul.addEventListener('click',function(e){
-    if(e.target.className ==='delete'){
-        e.target.parentElement.remove();
+// ul.addEventListener('click',function(e){
+//     if(e.target.className ==='delete'){
+//         e.target.parentElement.remove();
     
-    }
-    });
+//     }
+//     });
     
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function setToLocalStorage(task){
-    let tasks;
-    if(localStorage.getItem('tasks')===null){
-    tasks=[];
+// function setToLocalStorage(task){
+//     let tasks;
+//     if(localStorage.getItem('tasks')===null){
+//     tasks=[];
 
-    }else{
-        tasks=localStorage.getItem('tasks').split(',');
+//     }else{
+//         tasks=localStorage.getItem('tasks').split(',');
 
-    }
+//     }
 
-    tasks.push(task);
-    localStorage.setItem('tasks',tasks)
-}
+//     tasks.push(task);
+//     localStorage.setItem('tasks',tasks)
+// }
 
 
 
@@ -127,27 +127,27 @@ function setToLocalStorage(task){
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-document.addEventListener('DOMContentLoaded',function(e){
-    let tasks;
-    if(localStorage.getItem('tasks')===null){
-    tasks=[];
+// document.addEventListener('DOMContentLoaded',function(e){
+//     let tasks;
+//     if(localStorage.getItem('tasks')===null){
+//     tasks=[];
 
-    }else{
-        tasks=localStorage.getItem('tasks').split(',');
+//     }else{
+//         tasks=localStorage.getItem('tasks').split(',');
 
-    }
-    for(let item of tasks){
-        let li=document.createElement('li');
-        let span=document.createElement('span');
-        span.className='name';
-        span.innerHTML=item;
-        li.appendChild(span);
-        li.innerHTML +=spanDelete;
-        ul.appendChild(li);
+//     }
+//     for(let item of tasks){
+//         let li=document.createElement('li');
+//         let span=document.createElement('span');
+//         span.className='name';
+//         span.innerHTML=item;
+//         li.appendChild(span);
+//         li.innerHTML +=spanDelete;
+//         ul.appendChild(li);
 
-    }
+//     }
 
-})
+// })
 
 // in dastoor barayeh ineh ke zamani safaro refresh mikonim etelatet az local storage biyad va chizi pak nashe
 //dar khate 130 yani aval ma omadim in eventListenero barayeh 
@@ -158,3 +158,91 @@ document.addEventListener('DOMContentLoaded',function(e){
 //va bad hala bayad biyayim eatrate konim chon bayad bereh to tak takeh filamoon onaro biyare ba estefadeh az tage for chon megdaresho midonim
 //va bad etelato az balah copy kardim to for ke beghim che etelatio niyadz darim
 // va dar akhar bayad havasemoon bashe ke dar tageh span ma bayad megdareh item bezarim chon megdari ke eatrate karde rikhteh boodimesh to tage item
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+function setToLocalStorage(task){
+    let tasks;
+    if(localStorage.getItem('tasks')===null){
+        tasks=[];
+    }else{
+        tasks=localStorage.getItem('tasks').split(',')
+    }
+    tasks.push(task);
+    localStorage.setItem('tasks',tasks);
+}
+document.addEventListener('DOMContentLoaded',function(e){
+    let tasks;
+    if(localStorage.getItem('tasks')===null){
+        tasks=[]
+    }else{
+        tasks=localStorage.getItem('tasks').split(',')
+    }
+    for(let item of tasks){
+        let li=document.createElement('li');
+                let span=document.createElement('span');
+                span.className='name';
+                span.innerHTML=item;
+                li.appendChild(span);
+                li.innerHTML +=spanDelete;
+                ul.appendChild(li);
+    }
+
+})
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ul.addEventListener('click',function(e){
+    if(e.target.className==='delete'){
+        e.target.parentElement.remove()
+         removeFromLocalStorage(e.target.parentElement.children[0].innerHTML);
+
+        }
+    })
+   
+ //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+    function removeFromLocalStorage(task){
+        let tasks;
+     if(localStorage.getItem('tasks')===null){
+        tasks=[];
+     }else{
+        tasks=localStorage.getItem('tasks').split(',')
+     }
+     for(let i=0;i<tasks.length;i++){
+        if(tasks[i]===task){
+            tasks.splice(i,1);
+
+        }
+        if(tasks.length===0){
+            localStorage.clear();
+        }else{
+            localStorage.setItem('tasks',tasks)
+        }
+    }
+        
+
+    }
+// tozih nadarad  ta bad
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
