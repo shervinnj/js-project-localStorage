@@ -223,6 +223,40 @@ ul.addEventListener('click',function(e){
 
     }
 // tozih nadarad  ta bad
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+let checkBox=document.querySelector('#hide input');
+checkBox.addEventListener('click',function(e){
+    if(checkBox.checked===true){
+        ul.style.display='none';
+    }else{
+        ul.style.display='initial';
+    }
+})
+//in barayeh makhfi kardaneh ketabhast yek eventlistener garar midim
+//va ba d dastooreh if mighim ke aghar chekbox checked bood display none agahr ke na display bara ma namayesjh bedeh
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+let inputSearch=document.querySelector('#search-books input');
+
+inputSearch.addEventListener('keyup',function(e){
+    for(let book of ul.children){
+        if(book.firstElementChild.innerHTML.indexOf(inputSearch.value)!==-1){
+            book.style.display='blobk'
+        } else{
+            book.style.display='none'
+        }
+            
+       
+    }
+})
+// tozoh nadarad
+//+_+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 
 
 
